@@ -1,0 +1,88 @@
+
+<header style="width:100vw;">
+  <nav class="navbar navbar-dark bg-dark fixed-top ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img   src="/image/logo.png" alt="Addovedi" id="newlog"/>
+         
+      </a>
+      <% if(title!="home"){%>
+          <p style="color: white; font-family: Peralta,serif;" id="newhead"><%= department.title %> </p>
+          <% } %> 
+
+      <div>
+      <a href="https://forms.gle/dQV4WCBfMuyDDitM7" ><button class="btn btn-primary" style="font-family:Noto Sans Mono,Source Sans Pro,serif ;">Register</button></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        style="width: auto; opacity: 0.6"
+        class="offcanvas offcanvas-end text-bg-dark"
+        tabindex="-1"
+        id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5
+            class="offcanvas-title"
+            id="offcanvasDarkNavbarLabel"
+            style="font-size: 30px">
+            Addovedi 2022
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size:larger;font-family:Peralta,serif">
+            <li class="nav-item sp">
+              <a class="nav-link active" aria-current="page" href="/home">
+                Home
+              </a>
+            </li>
+            <li class="nav-item sp">
+              <a class="nav-link" href="/home/Computer Science and Engineering">
+                Computer Science and Engineering
+              </a>
+            </li>
+            <li class="nav-item sp">
+              <a class="nav-link" href="/home/Electronics and Communication Engineering">
+                Electronics and Communication Engineering
+              </a>
+            </li>
+            <li class="nav-item sp">
+              <a class="nav-link" href="/home/Electrical Engineering">
+                Electrical Engineering
+              </a>
+            </li>
+            <li class="nav-item sp">
+              <a class="nav-link" href="/home/Mechanical Engineering">
+                Mechanical Engineering
+              </a>
+            </li>
+            <li class="nav-item sp">
+              <a class="nav-link" href="/home/Civil Engineering">
+                Civil Engineering
+              </a>
+            </li>
+            <li class="nav-item sp">
+              <a class="nav-link" href="/home/Common Events">
+                Common Events
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </nav>
+</header>;

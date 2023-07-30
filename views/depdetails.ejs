@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=department.title%></title>
+    <link rel="icon" type="image/x-icon" href="/image/logo.png" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Peralta">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Noto Sans Mono">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/vertislide.css" />
+    <link rel="stylesheet" href="/css/newslide.css">
+    <script src="/js/dephid.js"></script>
+    <style>
+      img.myimg {
+        width: 17.875rem;
+        height: 18.75rem;
+      }
+      .webgra {
+        box-shadow: 0 0 1.875rem white;
+        background-image: linear-gradient(
+          to right,
+          #3ab5b0 0%,
+          #3d99be 31%,
+          #56317a 100%
+        );
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .backwebgra {
+        background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+      }
+      .card-body p {
+        font-size: 1.25rem;
+      }
+      .flip-card {
+        background-color: transparent;
+        width: 18.75rem;
+        height: 18.75rem;
+        perspective: 62.5rem;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      .flip-card-front {
+        background-color: #bbb;
+        color: black;
+      }
+
+      .flip-card-back {
+        background-color: #2980b9;
+        color: white;
+        transform: rotateY(180deg);
+      }
+      #footer-last h6 {
+        font-size: 1.5rem;
+      }
+      #new{
+    margin-top:10rem;
+}
+      /* media query for department page  */
+      @media screen and (max-width:1000px) {
+        #scene{
+          display: none !important;
+        }
+        #new{
+          display: flex !important;
+        }
+      }
+      @media screen and (min-width:1000px){
+        #new{
+          display: none !important;
+        }
+      }
+      @media screen and (max-width:440px){
+        #new{
+          margin-top: 8rem !important;
+        }
+        #new p{
+          font-size: small !important;
+        }
+        #new h2{
+          font-size: 1.15rem !important;
+        }
+      }
+      
+    </style>
+  </head>
+  <!-- You can access to department dictionary -->
+  <body style="background-image: url(/image/<%=department.imagebg%>);background-size:cover;background-repeat:no-repeat;background-position: center center;">
+  <%-include('asset/header')%>
+
+  
+  <div id="scene" style="border-radius:2rem; box-shadow: 0 0 20px navajowhite">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12 col-sm-12" >
+    <div id="left-zone">
+      <ul class="list" style="margin-top: 7rem;font-family:Noto Sans Mono,Source Sans Pro,serif">
+        
+        <%let array=["strawberry","banana","apple","orange"]%> 
+        <%for(let i=0;i<1;i++){%> 
+        <li class="item"> 
+             <input type="radio" id="radio_<%=department.events[i].description%>" name="basic_carousel" value="<%=department.events[i].description%>"/> 
+            <% if(i === 1) %> <input type="radio" id="radio_<%=department.events[i].description%>" name="basic_carousel" value="<%=department.events[i].description%>" checked="checked"/> <%;%>
+             <label style="margin-bottom: 1.25rem; font-weight: bold;" class="label_<%array[i]%>" for="radio_<%=department.events[i].description%>"><%=department.events[i].title%></label>
+          <div class="content content_<%array[i]%>" ><span class="picto"></span>
+            <h1 style="margin-bottom: 1.5rem; font-weight: bold;"><%=department.events[i].title %> </h1>
+            <p><%=department.events[i].description%></p>
+          </div>
+        </li>
+        <%}%>
+        <script defer>
+          const func = () => {
+            let depEl = document.getElementById('1')
+            while (depEl !== null) {
+              depEl.style.visibility = 'visible'
+              let nextId = parseInt(depEl.id) + 1;
+              depEl = document.getElementById(nextId);
+            }
+          }
+          document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+              func();
+            }, 500);
+          })
+        </script>
+        <%for(let i=1;i<department.events.length;i++){%> 
+        <li class="item"> 
+             <input type="radio" id="radio_<%=department.events[i].description%>" name="basic_carousel" value="<%=department.events[i].description%>"/> 
+            <% if(i === 1) %> <input type="radio" id="radio_<%=department.events[i].description%>" name="basic_carousel" value="<%=department.events[i].description%>" /> <%;%>
+             <label style="margin-bottom: 1.25rem; font-weight: bold;" class="label_<%array[i]%>" for="radio_<%=department.events[i].description%>"><%=department.events[i].title%></label>
+          <div class="content content_<%array[i]%>" style="visibility: hidden;" id="<%=i%>"><span class="picto"></span>
+            <h1 style="margin-bottom: 1.5rem; font-weight: bold;"><%=department.events[i].title %> </h1>
+            <p><%=department.events[i].description%></p>
+          </div>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+  </div>
+
+    <div id="middle-border"></div>
+    <div class="col-md-12 col-sm-12">
+    <div id="right-zone"></div>
+  </div>
+  </div>
+</div>
+</div>
+
+  <div id="new" >
+    <ul class="nav-dots" id="js-dots">
+      <%for(let i=0;i<department.events.length;i++){%> 
+      <li class="nav-dot"></li>
+      <%}%> 
+      
+  </ul>
+  <div class="container">
+  <div class="row">
+  <div class="col-sm-10 text-center">
+  <main class="main">
+      <%let colo=['first','second','third','fourth','fifth']%>
+      <%let i=0%>
+      <% department.events.forEach(ele=>{%>
+      <section class="section" id="<%=colo[i++]%>" style="font-family:Noto Sans Mono,Source Sans Pro,serif"">
+          <h2 class="section__heading" id="sechead"><strong><%=ele.title%></strong> </h2>
+          <p id="secp"><%=ele.description%></p>
+      </section>
+      <%})%>
+      
+  </main>
+  </div>
+  </div>
+  </div>
+  </div>
+    <%-include('asset/footer')%>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/newslide.js"></script>
+  </body>
+</html>
+
+<script>
+  AOS.init();
+</script>
